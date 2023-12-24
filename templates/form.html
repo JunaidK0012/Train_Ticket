@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Information Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e8f1f2;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 10px auto;
+      background-color: #f0e1ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    select {
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input, select
+    {
+            width: 100%;
+            padding: 7px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+    }
+
+    button {
+      background-color: #a82b87;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    header{
+        background-color: #9e4aa9;
+        color: #fff;
+
+            
+    }
+    h1 {
+        margin-left: 450px;
+        font-size: 2em;
+        letter-spacing: 2px;
+        padding: 10px;
+        margin-top: 0;
+
+    }
+    h2{
+        font-size:larger;
+        font-weight: 350;
+        padding-bottom: 5px;
+    }
+
+    button:hover {
+      background-color: #870058;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>IRCTC TICKET PRICE</h1>
+    </header>
+  <div class="form-container">
+    <h2>PLEASE FILL THE REQUIRED OPTIONS</h2>
+    <form id="trainForm" action="{{ url_for('predict')}}" method="post">
+      <label for="trainNumber">Train Number:</label>
+      <input type="number" placeholder="Enter the Train number" id="trainNumber" name="trainNumber" required>
+
+
+      <label for="fromStnCode">From Station Code:</label>
+      <input type="text" id="fromStnCode" name="fromStnCode" pattern="[A-Z]{3,4}" title="Input only in CAPS" maxlength="4" required>
+      <label for="toStnCode">To Station Code:</label>
+      <input type="text" id="toStnCode" name="toStnCode" pattern="[A-Z]{3,4}" title="Input only in CAPS" maxlength="4" required>
+
+
+      <label for="classCode">Class Code:</label>
+      <select id="classCode" name="classCode" required>
+        <option value="1A">1A</option>
+        <option value="2A">2A</option>
+        <option value="3A">3A</option>
+        <option value="SL">SL</option>
+        <option value="2S">2S</option>
+        <option value="CC">CC</option>
+      </select>
+
+      <label for="superFast">Super Fast:</label>
+      <select id="superFast" name="superFast">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

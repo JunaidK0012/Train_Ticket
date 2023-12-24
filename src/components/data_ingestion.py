@@ -14,6 +14,9 @@ from src.components.data_cleaning import DataCleaning
 from src.components.data_transformation import DataTransformationConfig
 from src.components.data_transformation import DataTransformation
 
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import ModelTrainer
+
 @dataclass
 class DataIngestionConfig:
     raw_data_path = os.path.join('artifacts','raw_data_path.csv')
@@ -54,7 +57,10 @@ if __name__=="__main__":
     train_data_path,test_data_path = data_cleaning.initiate_data_cleaning(raw_data_path,raw_schedule_data_path)
 
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data_path,test_data_path)
+    X_train,X_test,y_train,y_test = data_transformation.initiate_data_transformation(train_data_path,test_data_path)
+
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_trainer(X_train,X_test,y_train,y_test))
 
 
 

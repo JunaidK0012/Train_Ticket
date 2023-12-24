@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiting Page - Predicting Price</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e8f1f2;
+    }
+
+    header {
+      background-color: #9e4aa9;
+      color: #fff;
+      padding: 10px;
+    }
+
+    h1 {
+      margin-left: 450px;
+      font-size: 2em;
+      letter-spacing: 2px;
+      padding: 10px;
+      margin-top: 0;
+    }
+
+    .waiting-container {
+      max-width: 400px;
+      margin: 10px auto;
+      margin-top: 150px;
+      background-color: #f0e1ff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: larger;
+      font-weight: 350;
+      padding-bottom: 5px;
+    }
+
+    button {
+      background-color: #a82b87;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 150px;
+    }
+
+    button:hover {
+      background-color: #870058;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Predicting Price</h1>
+  </header>
+
+  <div class="waiting-container">
+    <h2>Waiting for Prediction...</h2>
+    <!-- Add any additional content or loading animation here -->
+    <button type="button" onclick="cancelPrediction()">Cancel</button>
+
+    <script>
+        function cancelPrediction() {
+          // Add your cancellation logic here
+          window.location.href = action="{{ url_for('predict')}}" ;
+        }
+      </script>
+  </div>
+</body>
+</html>

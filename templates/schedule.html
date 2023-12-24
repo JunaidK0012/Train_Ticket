@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Schedule</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e8f1f2;
+    }
+
+    header {
+        background-color: #9e4aa9;
+        color: #fff;
+       
+    }
+
+    h1 {
+        margin-left: 520px;
+        font-size: 2em;
+        letter-spacing: 2px;
+        padding: 10px;
+        margin-top: 0;
+
+    }
+
+    .waiting-container {
+      max-width: 1000px;
+      margin: 10px auto;
+      margin-top: 30px;
+      background-color: #f0e1ff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: larger;
+      font-weight: 350;
+      margin-left: 450px;
+    }
+    table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2px;
+        }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #ad009c;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+
+  </style>
+</head>
+<body>
+    <header>
+        <h1>IRCTC</h1>
+    </header>
+
+    <div>
+        <h2>Schedule of Train Number : {{trainNumber}}</h2>
+    </div>
+
+  <div class="waiting-container">
+
+    {{ my_dataframe | safe }}
+
+  </div>
+</body>
+</html>
